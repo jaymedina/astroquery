@@ -44,8 +44,7 @@ class CatalogsClass(MastQueryWithLogin):
                                   "args": {"data_release": "dr2", "table": "mean"}},
                     "plato": {"path": "plato/{data_release}/{table}.json",
                                          "args": {"data_release": "dr2", "table": "mean"}}}
-        
-        print(services)
+
         self._service_api_connection.set_service_params(services, "catalogs", True)
 
         self.catalog_limit = None
