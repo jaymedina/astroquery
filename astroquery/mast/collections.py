@@ -41,9 +41,7 @@ class CatalogsClass(MastQueryWithLogin):
         super().__init__()
 
         services = {"panstarrs": {"path": "panstarrs/{data_release}/{table}.json",
-                                  "args": {"data_release": "dr2", "table": "mean"}},
-                    "plato": {"path": "plato/{data_release}/{table}.json",
-                                         "args": {"data_release": ["dr1", "dr2"], "table": "mean"}}}
+                                  "args": {"data_release": "dr2", "table": "mean"}}
 
         self._service_api_connection.set_service_params(services, "catalogs", True)
 
@@ -302,6 +300,13 @@ class CatalogsClass(MastQueryWithLogin):
                     service += ".Position"
                 filters = self._current_connection.build_filter_set("Mast.Catalogs.Dd.Cone",
                                                                      service, **criteria)
+            elif catalog.lower() == "panstarrs":
+                service = "Mast.Catalogs.Filtered.Plato"
+                if coordinates or objectname:
+                    service += ".Position"
+                filters = self._current_connection.build_filter_set("Mast.Catalogs.Plato.Cone",
+                                                                     service, **criteria)
+                params["columns"] = "*"
             else:
                 raise InvalidQueryError("Criteria query not available for {}".format(catalog))
 
