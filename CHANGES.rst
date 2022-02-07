@@ -29,6 +29,8 @@ mast
 
 - Adding moving target functionality to ``astroquery.mast.Tesscut`` [#2121]
 
+- Adding PLATO catalog as query option in ``astroquery.mast.Catalogs.query_object`` and ``astroquery.mast.Catalogs.query_region``. [#2279]
+
 
 Infrastructure, Utility and Other Changes and Additions
 -------------------------------------------------------
