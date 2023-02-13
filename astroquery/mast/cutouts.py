@@ -31,7 +31,7 @@ from .utils import parse_input_location
 from .core import MastQueryWithLogin
 
 
-__all__ = ["TesscutClass", "Tesscut", "ZcutClass", "Zcut"]
+__all__ = ["TesscutClass", "Tesscut", "ZcutClass", "Zcut", "HapcutClass", "Hapcut"]
 
 
 def _parse_cutout_size(size):
